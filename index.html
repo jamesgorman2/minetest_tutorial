@@ -1,0 +1,694 @@
+<html lang="en">
+<head>
+    <title>A Minetest Tutorial</title>
+    <link rel="stylesheet" href="tutorial.css">
+</head>
+<body>
+<h1>A Minetest Tutorial</h1>
+<div id="toc" class="toc">
+    <ul>
+        <li>
+            <a href="#before-you-start">Before You Start</a>
+        </li>
+        <li>
+            <a href="#installing-and-running-minetest">Installing and Running Minetest</a>
+            <ul>
+                <li><a href="#windows">Windows</a></li>
+                <li><a href="#macos">MAcOS</a></li>
+                <li><a href="#linux">Linux</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#creating-your-world">Creating your World</a>
+        </li>
+        <li>
+            <a href="#setting-up-controls">Setting Up Controls</a>
+        </li>
+        <li>
+            <a href="#moving">Moving</a>
+            <ul>
+                <li><a href="#help-im-in-the-water">Help, I'm in the Water</a></li>
+                <li><a href="#inverting-the-mouse">Inverting the Mouse</a></li>
+            </ul>
+        </li>
+        <li>
+            <a href="#your-first-building">Your First Building</a>
+            <ul>
+                <li><a href="#accessing-the-inventory">Accessing the Inventory</a></li>
+                <li><a href="#equipping-nodes">Equipping Nodes</a></li>
+                <li><a href="#other-stuff">Other Stuff</a></li>
+                <li><a href="#placing-blocks">Placing Blocks</a></li>
+                <li><a href="#mining">Mining</a></li>
+                <li><a href="#finishing-the-house">Finishing the House</a></li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="tutorial">
+    <div class="section"><a id="before-you-start"></a>
+        <h2>Before You Start</h2>
+        <div class="body alert">
+            A two-button mouse is not required but it will make things easier.
+            You must have the ability to left and right click.
+        </div>
+    </div>
+    <div class="section"><a id="installing-and-running-minetest"></a>
+        <h2>Installing and Running Minetest</h2>
+        <h3><a id="windows"></a>Windows</h3>
+        <div class="body">
+            <ul>
+                <li>
+                    Download <span class="filename">Minetest 5.4.0 Win64 portable</span>
+                    from <a href="https://www.minetest.net/downloads/">minetest.net</a>
+                </li>
+                <li>
+                    Unzip the downloaded file
+                    <ul>
+                        <li>
+                            It can be anywhere you have read/write access such as you
+                            <span class="path">Downloads</span> folder or the <span class="path">Desktop</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Where you extracted Minetest, got to <span class="path">minetest-5.4.0-win64/bin</span>
+                    and double-click on <span class="path">minetest</span> to start the game
+                </li>
+            </ul>
+        </div>
+        <h3><a id="macos"></a>MacOS</h3>
+        <div class="body">
+            The homebrew installation can be finicky and requires the command. Instead use the following:
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Download <span class="path">minetest-5.4.0-dev-10.13.6-osx.zip</span> from
+                    <a href="https://github.com/neoascetic/minetest/releases">https://github.com/neoascetic/minetest/releases</a>
+                    <ul>
+                        <li>
+                            The exact number after <span class="path">-dev-</span> doesn't matter,
+                            just use the latest.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Un-archive the downloaded file and copy <span class="path">minetest.app</span>
+                    to your applications folder (<span class="path">/Applications</span>)
+                </li>
+                <li>
+                    Run minetest
+                    <ul>
+                        <li>
+                            It is likely that MacOS will prevent you from running minetest as it is not signed by Apple.
+                            Follow either of these guides to enable it:
+                            <ul>
+                                <li>
+                                    <a href="https://support.apple.com/en-au/guide/mac-help/mh40616/mac">https://support.apple.com/en-au/guide/mac-help/mh40616/mac</a>
+                                </li>
+                                <li>
+                                    <a href="https://support.apple.com/en-gb/HT202491">https://support.apple.com/en-gb/HT202491</a>
+                                    -
+                                    see section 'How to open an app that
+                                    hasn't been notarised or is from an unidentified developer'
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h3><a id="linux"></a>Linux</h3>
+        <div class="body">
+            Follow the instructions on <a href="https://www.minetest.net/downloads/">minetest.net</a>.
+        </div>
+    </div>
+    <div class="section"><a id="creating-your-world"></a>
+        <h2>Creating your World</h2>
+        <div class="body">
+            First, we're going to create a world. It will have some things turned off to make it easier to navigate for
+            inexperienced players. Normally maps are generated randomly. We'll use a seed so everyone has the same
+            world to make it easier to follow the pictures. We're also disabling damage so you won't get hurt
+            falling off things.
+        </div>
+        <div class="body">
+            <ul>
+                <li>Open Minetest</li>
+                <li>
+                    From <span class="ui-elem">Start Game</span> enable <span class="ui-elem">Creative Mode</span>.
+                    Disable <span class="ui-elem">Enable Damage</span> and <span class="ui-elem">Host Server</span>
+                </li>
+                <li>Click <span class="ui-elem">New</span> to open the Create window</li>
+                <li>
+                    Enter the following
+                    <ul>
+                        <li>World name: <span class="input">My World</span></li>
+                        <li>Seed: <span class="input">3822812060867150126</span></li>
+                        <li>Mapgen: <span class="input">v7</span></li>
+                        <li>Game: <span class="input">Minetest Game</span></li>
+                        <li>
+                            Enable: <span class="ui-elem">Decorations</span>, <span class="ui-elem">Rivers</span>, <span
+                                class="ui-elem">Mountains</span>
+                        </li>
+                        <li>
+                            Disable: <span class="ui-elem">Caves</span>, <span class="ui-elem">Dungeons</span>, <span
+                                class="ui-elem">Caverns</span>, <span class="ui-elem">Floatlands</span>
+                        </li>
+                    </ul>
+                </li>
+                <li>Click <span class="ui-elem">Create</span> to create the world and return to Start Game</li>
+                <li>
+                    In Start Game select <span class="ui-elem">My World</span> and click
+                    <span class="ui-elem">Play Game</span> to enter the world
+                </li>
+                <li>Once the world is loaded you should see the following</li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/creating-your-world-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/creating-your-world-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/creating-your-world-3.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/creating-your-world-4.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/creating-your-world-5.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div class="section"><a id="setting-up-controls"></a>
+        <h2>Setting Up Controls</h2>
+        <div class="body">
+            There are a couple of controls that we need to set up to make things easier to play.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Press the escape key (<span class="keypress">&lang;ESC&rang;</span>) to pause the game and bring up
+                    the in-game menu
+                    <ul>
+                        <li>
+                            Here you can set volume, key bindings and exit the game. It also gives you a list of the
+                            main keys used in the game.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Select Change Keys to open the Keybindings menu
+                </li>
+                <li>
+                    Enable Automatic jumping
+                    <ul>
+                        <li>
+                            This will enable you to climb single blocks by walking forward. We'll get to this in the
+                            next section.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Click Save to save this change and return to the game
+                </li>
+                <li>
+                    Type <span class="keypress">/</span> (forward slash) to open the command prompt, then
+                    <span class="text-input" style="background-color: lightgray;">grantme fast</span> and press <span
+                        class="keypress">&lang;ENTER&rang;</span>.
+                    We'll use this in the next section.
+                </li>
+                <li>
+                    Enable the mini-map by pressing <span class="keypress">&lang;V&rang;</span>
+                    <ul>
+                        <li>This will show you the area around where you are</li>
+                        <li>It is oriented to the direction you are facing</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/setting-up-controls-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/setting-up-controls-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/setting-up-controls-3.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/setting-up-controls-4.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+        </div>
+    </div>
+    <div class="section"><a id="moving"></a>
+        <h2>Moving</h2>
+        <div class="body">
+            The players view is from first person perspective by default. You change orientation using the
+            mouse - left right up and down respectively.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Look around. To your left is a hill that changes from grass to sand. To you right a lake and a
+                    forested mountain. Behind is savannah.
+                </li>
+                <li>
+                    You can set the camera to be external by pressing <span class="keypress">&lang;C&rang;</span>.
+                    Pressing this again will set the
+                    camera to look at the player's face, then again to return to first person.
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            Walking is done using the <span class="keypress">&lang;WASD&rang;</span> keys instead of the arrow keys.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Walk up to the top of the green hill that was originally to your left
+                    <ul>
+                        <li>
+                            Over the other side you'll see more lakes
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            Running is done by first enabling fast mode by pressing <span class="keypress">&lang;J&rang;</span>, then
+            holding <span class="keypress">&lang;E&rang;</span> while
+            walking.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Run down to the new lakes then back to the hill
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            Automatic jumping is a little clunky while running. You might find it easier to jump manually.
+            This is done by pressing <span class="keypress">&lang;SPACE&rang;</span>. You can jump on the spot or while
+            moving, but only the height of
+            a single block. Jumping is also useful when building as we'll see soon.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Jump with and without moving to see how it works
+                </li>
+                <li>
+                    Try running back up the hill while jumping. Don't worry if you don't always get the timing right.
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/moving-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/moving-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/moving-3.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/moving-4.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+        </div>
+        <h3><a id="help-im-in-the-water"></a>Help, I'm in the Water</h3>
+        <div class="body">
+            If you accidentally fell in the water, you'll find it's not quite the same as walking and can't get out. If
+            you didn't, then go to the big lake where you started and jump in.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Move forward to the middle of the lake and stop
+                    <ul>
+                        <li>
+                            You'll notice you're slowly sinking. You can't drown, but you will sink to the bottom if you
+                            don't swim.
+                        </li>
+                        <li>
+                            Use <span class="keypress">&lang;SPACE&rang;</span> to ascend and <span class="keypress">&lang;LEFT SHIFT&rang;</span>
+                            to descend.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Swim back to the edge of the lake and jump out
+                    <ul>
+                        <li>
+                            Automatic jumping doesn't work in the water, you need to use <span class="keypress">&lang;SPACE&rang;</span>
+                            to get out (or get stuck on a block while swimming underwater).
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/water-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/water-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+        </div>
+        <h3><a id="inverting-the-mouse"></a>Inverting the Mouse</h3>
+        <div class="body">
+            Some players prefer to use an inverted mouse. This can only be done by exiting Minetest and editing the
+            <span class="path">minetest.conf</span> for either Minetest or the world.
+        </div>
+    </div>
+    <div class="section"><a id="your-first-building"></a>
+        <h2>Your First Building</h2>
+        <div class="body">
+            <ul>
+                <li>
+                    Walk back to the top of the hill. We're going to build our first building there.
+                </li>
+            </ul>
+        </div>
+        <h3><a id="accessing-the-inventory"></a>Accessing the Inventory</h3>
+        <div class="body">
+            Since we're using creative mode we don't have to mine for materials or craft them, but we still need
+            something to build with. Building materials can be found in the Inventory.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Press <span class="keypress">&lang;I&rang;</span> to open the Inventory
+                    <ul>
+                        <li>
+                            The inventory has two sections
+                            <ul>
+                                <li>
+                                    The top is where you can find and select available items.
+                                </li>
+                                <li>
+                                    The bottom is where you equip items and nodes
+                                    <ul>
+                                        <li>
+                                            The top row is the active items list. It's slightly darker
+                                        </li>
+                                        <li>
+                                            The bottom three rows are the inventory when not in Creative Mode. We don't
+                                            need to worry about this one
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            For building, we are interested in Nodes (or blocks). You can select <span class="ui-elem">Nodes</span>
+                            to only show the items that can be used for building
+                        </li>
+                        <li>
+                            Hover over a picture for a description
+                        </li>
+                        <li>
+                            Use the search box to find something by name and the arrows to change the current page of
+                            items
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/water-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/water-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+        </div>
+        <h3><a id="equipping-nodes"></a>Equipping Nodes (and other stuff)</h3>
+        <div class="body">
+            <ul>
+                <li>Click and drag items from the top pane to the active items row</li>
+                <li>The added item will also appear in the row of eight boxes at the bottom of the screen</li>
+                <li>To remove an item, drag it onto the garbage bin icon</li>
+                <li>
+                    Equip the following:
+                    <ul>
+                        <li><span class="item">Cobblestone</span></li>
+                        <li><span class="item">Pine Tree</span></li>
+                        <li><span class="item">Pine Wood Planks</span></li>
+                        <li><span class="item">Glass Pane</span></li>
+                        <li><span class="item">Wood Door</span></li>
+                        <li><span class="item">Bookshelf</span></li>
+                        <li><span class="item">Simple Bed</span></li>
+                        <li><span class="item">Torch</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/inventory-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/inventory-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+        </div>
+        <h3><a id="other-stuff"></a>Other Stuff</h3>
+        <h4>Crafting and Recipes</h4>
+        <div class="body">
+            These are used to create new things by combining other things and are not used in creative mode.
+        </div>
+        <h4>Tools</h4>
+        <div class="body">
+            Tools speed up the process of mining or enable special actions, like creating water and
+            fire or catching butterflies.
+        </div>
+        <h4>Items</h4>
+        <div class="body">
+            Except for the <span class="item">Boat</span> and
+            <span class="item">Mine Cart</span> these are used for crafting.
+        </div>
+        <h3><a id="placing-blocks"></a>Placing Blocks</h3>
+        <div class="body">
+            <ul>
+                <li>
+                    Select <span class="item">Cobblestone</span> as the active item
+                    <ul>
+                        <li>
+                            You select what the active item is by pressing the numbers <span class="keypress">&lang;1-8&rang;</span>
+                            or using the mouse scroll wheel
+                            <ul>
+                                <li>
+                                    The active item is highlighted and appears in your hand
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Select a square on the ground and press the
+                    <span class="keypress">&lang;RIGHT MOUSE BUTTON&rang;</span>
+                    to place a single <span class="item">Cobblestone</span> block
+                    <ul>
+                        <li>
+                            Blocks can only be placed adjacent to existing blocks
+                            <ul>
+                                <li>
+                                    You can see where they will be placed by the black outline
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Continue to place <span class="item">Cobblestone</span> until you have a 6x6 square with one
+                    block missing. This will be our doorway.
+                </li>
+                <li>
+                    Add a second layer of <span class="item">Cobblestone</span>, leaving holes for windows
+                </li>
+                <li>
+                    You won't be able to add a third layer from the ground, so climb up into one of the holes left for
+                    windows
+                    <ul>
+                        <li>
+                            If you have automatic jumping enabled you can just walk at the wall
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Add a third layer finishing the holes for the doors and windows
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/building-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/building-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/building-3.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/building-4.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+        </div>
+        <h3><a id="mining"></a>Mining</h3>
+        <div class="body">
+            If you mis-place something and want to get rid of it, want to change the terrain, or chop down trees, you
+            need to mine. You can mine with most items in your hand, or nothing at all. In non-creative mode it is
+            faster to mine with a tool; in creative mode some things will go into your inventory.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    The house looks a bit like a prison. Let's fix that by removing some of the stone and replacing it
+                    with wood.
+                </li>
+                <li>
+                    Remove the <span class="item">Cobblestones</span> on each corner by mining them
+                    <ul>
+                        <li>
+                            Select a block and hold <span class="keypress">&lang;LEFT MOUSE BUTTON&rang;</span> until
+                            the target disappears.
+                            <ul>
+                                <li>
+                                    If you only tap <span class="keypress">&lang;LMB&rang;</span> you will not complete
+                                    the mining action
+                                </li>
+                                <li>
+                                    If you hold too long you will continue mining whatever is behind the first thing.
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            If you mine too much just place a replacement block
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/mining-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+        </div>
+        <h3><a id="finishing-the-house"></a>Finishing the House</h3>
+        <div class="body">
+            <ul>
+                <li>
+                    Place <span class="item">Pine Tree</span> blocks in the corners where you removed the <span
+                        class="item">Cobblestone</span>
+                    <ul>
+                        <li>
+                            Note how the orientation changes depending on which face you build on. Get all the logs
+                            facing with the rings upwards
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Now add a layer of <span class="item">Pine Tree</span> blocks around the top of the wall
+                    <ul>
+                        <li>
+                            It's hard to get up now. Build a set of steps, we'll mine these later to get rid of them.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Select the <span class="item">Pine Wood Planks</span> and build a hollow pitched roof. Don't forget
+                    you can climb on the roof as you build
+                </li>
+                <li>
+                    Climb down and mine the steps you build
+                </li>
+                <li>
+                    Select the <span class="item">Glass Pane</span> and fill in each of the windows
+                </li>
+                <li>
+                    Select the <span class="item">Wood Door</span> and add it in the doorway
+                    <ul>
+                        <li>
+                            Mine it and add it from the other side. Notice how it attaches to the other side of the wall
+                        </li>
+                        <li>
+                            Pick a side
+                        </li>
+                        <li>
+                            Right click the door to open or close it
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Select the <span class="item">Simple Bed</span> and add it
+                    <ul>
+                        <li>
+                            Notice that it takes two spaces and can't be added if the wall is in the way
+                        </li>
+                        <li>
+                            It's placement oriented to your facing
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Select the <span class="item">Bookshelf</span> and add it
+                    <ul>
+                        <li>
+                            This is also oriented to you facing
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    It's a bit gloomy inside so select the <span class="item">Torch</span> and add some inside. You can
+                    also add some outside so
+                    you can find you house in the dark.
+                </li>
+            </ul>
+        </div>
+        <div class="body">
+            You've now completed the tutorial and are ready to do whatever you like in your world.
+        </div>
+        <div class="row">
+            <div class="column">
+                <img src="img/finishing-1.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/finishing-2.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/finishing-3.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/finishing-4.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/finishing-5.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/finishing-6.png" onclick="loadLightbox(this);" class="hover-shadow" alt=""/>
+            </div>
+            <div class="column">
+                <img src="img/finishing-7.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+            <div class="column">
+                <img src="img/finishing-8.png" onclick="loadLightbox(this);" class="hover-shadow" alt="">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div id="lightbox" class="modal">
+    <span class="close cursor" onclick="hideLightBox()">&times;</span>
+    <div id="lightbox-content" class="modal-content"></div>
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    <div class="caption-container"><p></p></div>
+    <div id="lightbox-thumbnails"></div>
+</div>
+<script src="index.js"></script>
+</body>
+</html>
