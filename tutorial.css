@@ -35,7 +35,7 @@ h1 {
     /*float: right;*/
     position:fixed;
     top:10pt;
-    width:100%;
+    width:auto;
     z-index:100;
 }
 
