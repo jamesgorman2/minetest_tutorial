@@ -4,6 +4,11 @@ body {
 }
 
 .body {
+
+}
+
+.body :after .body {
+    padding-top: 8px;
 }
 
 .filename {
@@ -25,6 +30,11 @@ body {
 
 .ui-elem {
     font-style: italic;
+}
+
+.warn {
+    font-style: italic;
+    color: darkred;
 }
 
 h1 {
@@ -57,6 +67,7 @@ h1 {
     display: table;
     clear: both;
 }
+
 
 .column {
     float: left;

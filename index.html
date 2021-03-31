@@ -32,6 +32,9 @@
             </ul>
         </li>
         <li>
+            <a href="its-dark">Oh no, it's getting dark!</a>
+        </li>
+        <li>
             <a href="#your-first-building">Your First Building</a>
             <ul>
                 <li><a href="#accessing-the-inventory">Accessing the Inventory</a></li>
@@ -47,9 +50,13 @@
 <div class="tutorial">
     <div class="section"><a id="before-you-start"></a>
         <h2>Before You Start</h2>
-        <div class="body alert">
+        <div class="body warn">
             A two-button mouse is not required but it will make things easier.
             You must have the ability to left and right click.
+        </div>
+        <div class="body warn">
+            Each section has accompanying pictures that may help guide your understanding of
+            what to do.
         </div>
     </div>
     <div class="section"><a id="installing-and-running-minetest"></a>
@@ -140,7 +147,11 @@
                 </li>
                 <li>Click <span class="ui-elem">New</span> to open the Create window</li>
                 <li>
-                    Enter the following
+                    Enter the following:
+                    <div class="warn">
+                        To paste into Minetest in MacOS you must use
+                        <span class="keypress">&lt;CTRL+V&gt;</span>
+                    </div>
                     <ul>
                         <li>World name: <span class="input">My World</span></li>
                         <li>Seed: <span class="input">3822812060867150126</span></li>
@@ -190,7 +201,7 @@
         <div class="body">
             <ul>
                 <li>
-                    Press the escape key (<span class="keypress">&lang;ESC&rang;</span>) to pause the game and bring up
+                    Press the escape key (<span class="keypress">&lt;ESC&gt;</span>) to pause the game and bring up
                     the in-game menu
                     <ul>
                         <li>
@@ -216,12 +227,12 @@
                 </li>
                 <li>
                     Type <span class="keypress">/</span> (forward slash) to open the command prompt, then
-                    <span class="text-input" style="background-color: lightgray;">grantme fast</span> and press <span
-                        class="keypress">&lang;ENTER&rang;</span>.
+                    <span class="text-input" style="background-color: lightgray;">grantme fast settime</span> and press <span
+                        class="keypress">&lt;ENTER&gt;</span>.
                     We'll use this in the next section.
                 </li>
                 <li>
-                    Enable the mini-map by pressing <span class="keypress">&lang;V&rang;</span>
+                    Enable the mini-map by pressing <span class="keypress">&lt;V&gt;</span>
                     <ul>
                         <li>This will show you the area around where you are</li>
                         <li>It is oriented to the direction you are facing</li>
@@ -257,14 +268,14 @@
                     forested mountain. Behind is savannah.
                 </li>
                 <li>
-                    You can set the camera to be external by pressing <span class="keypress">&lang;C&rang;</span>.
+                    You can set the camera to be external by pressing <span class="keypress">&lt;C&gt;</span>.
                     Pressing this again will set the
                     camera to look at the player's face, then again to return to first person.
                 </li>
             </ul>
         </div>
         <div class="body">
-            Walking is done using the <span class="keypress">&lang;WASD&rang;</span> keys instead of the arrow keys.
+            Walking is done using the <span class="keypress">&lt;WASD&gt;</span> keys instead of the arrow keys.
         </div>
         <div class="body">
             <ul>
@@ -279,8 +290,8 @@
             </ul>
         </div>
         <div class="body">
-            Running is done by first enabling fast mode by pressing <span class="keypress">&lang;J&rang;</span>, then
-            holding <span class="keypress">&lang;E&rang;</span> while
+            Running is done by first enabling fast mode by pressing <span class="keypress">&lt;J&gt;</span>, then
+            holding <span class="keypress">&lt;E&gt;</span> while
             walking.
         </div>
         <div class="body">
@@ -292,7 +303,7 @@
         </div>
         <div class="body">
             Automatic jumping is a little clunky while running. You might find it easier to jump manually.
-            This is done by pressing <span class="keypress">&lang;SPACE&rang;</span>. You can jump on the spot or while
+            This is done by pressing <span class="keypress">&lt;SPACE&gt;</span>. You can jump on the spot or while
             moving, but only the height of
             a single block. Jumping is also useful when building as we'll see soon.
         </div>
@@ -335,7 +346,7 @@
                             don't swim.
                         </li>
                         <li>
-                            Use <span class="keypress">&lang;SPACE&rang;</span> to ascend and <span class="keypress">&lang;LEFT SHIFT&rang;</span>
+                            Use <span class="keypress">&lt;SPACE&gt;</span> to ascend and <span class="keypress">&lt;LEFT SHIFT&gt;</span>
                             to descend.
                         </li>
                     </ul>
@@ -344,7 +355,7 @@
                     Swim back to the edge of the lake and jump out
                     <ul>
                         <li>
-                            Automatic jumping doesn't work in the water, you need to use <span class="keypress">&lang;SPACE&rang;</span>
+                            Automatic jumping doesn't work in the water, you need to use <span class="keypress">&lt;SPACE&gt;</span>
                             to get out (or get stuck on a block while swimming underwater).
                         </li>
                     </ul>
@@ -365,6 +376,28 @@
             <span class="path">minetest.conf</span> for either Minetest or the world.
         </div>
     </div>
+    <div class="section"><a id="its-dark"></a>
+        <h2>Oh no, it's dark!</h2>
+        <div class="body">
+            Minetest has a day/night cycle. This can be disabled by editing config (just like mouse inversion),
+            but since this is a short tutorial we'll just use the console. We already added the privlege to
+            set the time so we'll use that.
+        </div>
+        <div class="body">
+            <ul>
+                <li>
+                    Press <span class="keypress">/</span> (forward slash) to open the command prompt, then
+                    <span class="text-input" style="background-color: lightgray;">time 6:00</span> and press <span
+                        class="keypress">&lt;ENTER&gt;</span>.
+                    <ul>
+                        <li>
+                            The sun has risen by about 0545 and begins to set at about 1815
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
     <div class="section"><a id="your-first-building"></a>
         <h2>Your First Building</h2>
         <div class="body">
@@ -382,7 +415,7 @@
         <div class="body">
             <ul>
                 <li>
-                    Press <span class="keypress">&lang;I&rang;</span> to open the Inventory
+                    Press <span class="keypress">&lt;I&gt;</span> to open the Inventory
                     <ul>
                         <li>
                             The inventory has two sections
@@ -478,7 +511,7 @@
                     Select <span class="item">Cobblestone</span> as the active item
                     <ul>
                         <li>
-                            You select what the active item is by pressing the numbers <span class="keypress">&lang;1-8&rang;</span>
+                            You select what the active item is by pressing the numbers <span class="keypress">&lt;1-8&gt;</span>
                             or using the mouse scroll wheel
                             <ul>
                                 <li>
@@ -490,7 +523,7 @@
                 </li>
                 <li>
                     Select a square on the ground and press the
-                    <span class="keypress">&lang;RIGHT MOUSE BUTTON&rang;</span>
+                    <span class="keypress">&lt;RIGHT MOUSE BUTTON&gt;</span>
                     to place a single <span class="item">Cobblestone</span> block
                     <ul>
                         <li>
@@ -554,11 +587,11 @@
                     Remove the <span class="item">Cobblestones</span> on each corner by mining them
                     <ul>
                         <li>
-                            Select a block and hold <span class="keypress">&lang;LEFT MOUSE BUTTON&rang;</span> until
+                            Select a block and hold <span class="keypress">&lt;LEFT MOUSE BUTTON&gt;</span> until
                             the target disappears.
                             <ul>
                                 <li>
-                                    If you only tap <span class="keypress">&lang;LMB&rang;</span> you will not complete
+                                    If you only tap <span class="keypress">&lt;LMB&gt;</span> you will not complete
                                     the mining action
                                 </li>
                                 <li>
